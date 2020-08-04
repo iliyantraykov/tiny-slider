@@ -538,6 +538,7 @@ var tns = function(options) {
     responsive: false,
     lazyload: false,
     lazyloadSelector: '.tns-lazy-img',
+    lazyloadOffset: 0,
     touch: true,
     mouseDrag: false,
     swipeAngle: 15,
@@ -727,6 +728,7 @@ var tns = function(options) {
       sheet = createStyleSheet(null, getOption('nonce')),
       lazyload = options.lazyload,
       lazyloadSelector = options.lazyloadSelector,
+      lazyloadOffset = options.lazyloadOffset,
       slidePositions, // collection of slide positions
       slideItemsOut = [],
       cloneCount = loop ? getCloneCountForLoop() : 0,
@@ -2228,6 +2230,22 @@ var tns = function(options) {
   function doLazyLoad () {
     if (lazyload && !disable) {
       var arg = getVisibleSlideRange();
+      console.log(slideCount);
+
+      if (lazyloadOffset > 0) {
+        if (arg[0]-lazyloadOffset <= 0)
+          arg[0] = 0;
+        else
+          arg[0] -= lazyloadOffset;
+
+        if (arg[1]+lazyloadOffset >= slideCount)
+          arg[1] = slideCount-1;
+        else
+          arg[1] += lazyloadOffset;
+      }
+      console.log(arg);
+      console.log(lazyloadOffset);
+
       arg.push(lazyloadSelector);
 
       getImageArray.apply(null, arg).forEach(function (img) {
