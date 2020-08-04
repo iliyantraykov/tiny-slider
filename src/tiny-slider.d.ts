@@ -227,6 +227,11 @@ export interface TinySliderSettings extends CommonOptions {
      */
     lazyloadSelector?: string;
     /**
+     * The number of not visible images to be preloaded after the last visible slide and before the visible first slide.
+     * @defaultValue 0
+     */
+    lazyloadOffset?: number;
+    /**
      * Swipe or drag will not be triggered if the angle is not inside the range when set.
      * @defaultValue 15
      */
