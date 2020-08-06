@@ -2236,7 +2236,7 @@ var tns = function(options) {
         arg[0] = (arg[0]-lazyloadOffset <= 0) ? 0 : arg[0] - lazyloadOffset;
         arg[1] = (arg[1]+lazyloadOffset >= slideCountNew) ? slideCountNew - 1 : arg[1] + lazyloadOffset;
       }
-      
+
       arg.push(lazyloadSelector);
 
       getImageArray.apply(null, arg).forEach(function (img) {
