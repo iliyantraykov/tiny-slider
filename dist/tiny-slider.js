@@ -2233,17 +2233,10 @@ var tns = function(options) {
 
       //Increase the number of slides to be lazyloaded
       if (lazyloadOffset > 0) {
-        if (arg[0]-lazyloadOffset <= 0)
-          arg[0] = 0;
-        else
-          arg[0] -= lazyloadOffset;
-
-        if (arg[1]+lazyloadOffset >= cloneCount * 2 + slideCount)
-          arg[1] = cloneCount * 2 + slideCount - 1;
-        else
-          arg[1] += lazyloadOffset;
+        arg[0] = (arg[0]-lazyloadOffset <= 0) ? 0 : arg[0] - lazyloadOffset;
+        arg[1] = (arg[1]+lazyloadOffset >= slideCountNew) ? slideCountNew - 1 : arg[1] + lazyloadOffset;
       }
-
+      
       arg.push(lazyloadSelector);
 
       getImageArray.apply(null, arg).forEach(function (img) {
