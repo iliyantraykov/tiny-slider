@@ -1791,21 +1791,19 @@ export var tns = function(options) {
   function doLazyLoad () {
     if (lazyload && !disable) {
       var arg = getVisibleSlideRange();
-      console.log(slideCount);
 
+      //Increase the number of slides to be lazyloaded
       if (lazyloadOffset > 0) {
         if (arg[0]-lazyloadOffset <= 0)
           arg[0] = 0;
         else
           arg[0] -= lazyloadOffset;
 
-        if (arg[1]+lazyloadOffset >= slideCount)
-          arg[1] = slideCount-1;
+        if (arg[1]+lazyloadOffset >= cloneCount * 2 + slideCount)
+          arg[1] = cloneCount * 2 + slideCount - 1;
         else
           arg[1] += lazyloadOffset;
       }
-      console.log(arg);
-      console.log(lazyloadOffset);
 
       arg.push(lazyloadSelector);
 
