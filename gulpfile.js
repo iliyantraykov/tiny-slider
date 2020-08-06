@@ -145,7 +145,7 @@ gulp.task('min', ['editPro'], function () {
     .pipe($.uglify())
     .pipe($.sourcemaps.write('../' + sourcemapsDest))
     .pipe(gulp.dest(pathDest + 'min'))
-})
+});
 
 // browser-sync
 gulp.task('server', function() {
