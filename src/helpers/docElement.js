@@ -1,1 +1,1 @@
-export var docElement = document.documentElement;
+export var docElement = process.browser ? document.documentElement : {};

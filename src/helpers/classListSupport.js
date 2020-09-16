@@ -1,1 +1,1 @@
-export var classListSupport = 'classList' in document.createElement('_');
+export var classListSupport = process.browser ? 'classList' in document.createElement('_'): false;

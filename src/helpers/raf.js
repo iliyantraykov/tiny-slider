@@ -1,4 +1,4 @@
-var win = window;
+var win = process.browser ? window : {};
 
 export var raf = win.requestAnimationFrame
   || win.webkitRequestAnimationFrame
