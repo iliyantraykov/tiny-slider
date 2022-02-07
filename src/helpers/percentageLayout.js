@@ -5,6 +5,10 @@ import { setFakeBody } from './setFakeBody.js';
 import { resetFakeBody } from './resetFakeBody.js';
 
 export function percentageLayout() {
+	
+	if(!process.browser)
+		return false;
+	
   // check subpixel layout supporting
   var doc = document,
       body = getBody(),

@@ -1,6 +1,6 @@
-var win = process.browser ? window : {};
+var win = process.browser ? window : null;
 
-export var raf = win.requestAnimationFrame
+export var raf = !win ?  function(cb) { return cb(); } : win.requestAnimationFrame
   || win.webkitRequestAnimationFrame
   || win.mozRequestAnimationFrame
   || win.msRequestAnimationFrame

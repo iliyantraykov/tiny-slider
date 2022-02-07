@@ -2,7 +2,7 @@ import { docElement } from './docElement.js';
 
 export function setFakeBody (body) {
   var docOverflow = '';
-  if (body.fake) {
+  if (process.browser && body.fake) {
     docOverflow = docElement.style.overflow;
     //avoid crashing IE8, if background image is used
     body.style.background = '';

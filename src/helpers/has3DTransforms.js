@@ -3,7 +3,7 @@ import { setFakeBody } from './setFakeBody.js';
 import { resetFakeBody } from './resetFakeBody.js';
 
 export function has3DTransforms(tf){
-  if (!tf) { return false; }
+  if (!tf || !process.browser) { return false; }
   if (!window.getComputedStyle) { return false; }
   
   var doc = document,
