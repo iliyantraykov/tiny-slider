@@ -1,3 +1,4 @@
 export function isVisible(el) {
-  return process.browser ? window.getComputedStyle(el).display !== 'none' : false;
+
+  return typeof window === 'undefined' ? false : window.getComputedStyle(el).display !== 'none';
 }

@@ -1,4 +1,6 @@
-var win = process.browser ? window : null;
+import { isServer } from './isServer.js';
+
+var win = !isServer ? window : null;
 
 export var raf = !win ?  function(cb) { return cb(); } : win.requestAnimationFrame
   || win.webkitRequestAnimationFrame
