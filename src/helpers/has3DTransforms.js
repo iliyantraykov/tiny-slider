@@ -1,10 +1,9 @@
 import { getBody } from './getBody.js';
 import { setFakeBody } from './setFakeBody.js';
 import { resetFakeBody } from './resetFakeBody.js';
-import { isServer } from './isServer.js';
 
 export function has3DTransforms(tf){
-  if (!tf || isServer) { return false; }
+  if (!tf) { return false; }
   if (!window.getComputedStyle) { return false; }
   
   var doc = document,
