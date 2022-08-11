@@ -1,8 +1,6 @@
-import { isServer } from './isServer.js';
+var win = process.browser ? window : {};
 
-var win = !isServer ? window : null;
-
-export var raf = !win ?  function(cb) { return cb(); } : win.requestAnimationFrame
+export var raf = win.requestAnimationFrame
   || win.webkitRequestAnimationFrame
   || win.mozRequestAnimationFrame
   || win.msRequestAnimationFrame

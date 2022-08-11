@@ -1,3 +1,1 @@
-import { isServer } from './isServer.js';
-
-export var docElement = isServer ? null : document.documentElement;
+export var docElement = process.browser ? document.documentElement : {};

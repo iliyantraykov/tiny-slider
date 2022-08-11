@@ -1,10 +1,8 @@
 import { docElement } from './docElement.js';
-import { isServer } from './isServer.js';
 
 export function setFakeBody (body) {
-
   var docOverflow = '';
-  if (!isServer && body.fake) {
+  if (body.fake) {
     docOverflow = docElement.style.overflow;
     //avoid crashing IE8, if background image is used
     body.style.background = '';

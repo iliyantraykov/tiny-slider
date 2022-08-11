@@ -1,8 +1,5 @@
+var win = process.browser ? window : {};
 
-import { isServer } from './isServer.js';
-
-var win = !isServer ? window : null;
-
-export var caf = !win ? function(id) { return; } : win.cancelAnimationFrame
+export var caf = win.cancelAnimationFrame
   || win.mozCancelAnimationFrame
   || function(id){ clearTimeout(id); };
